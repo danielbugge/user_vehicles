@@ -23,6 +23,7 @@ Each vehicle has an owner (user). A user can only see information regarding thei
 
 ### Deliverables:
 
+* The task is estimated to take 6h.
 * Your answer is expected to be running at `localhost:80` with docker-compose up.
 
 ### How to submit?
