@@ -1,6 +1,9 @@
 # assignment-1
 
-This repository is a boilerplate to use `fastapi` and `nginx`. Feel free to complement as you please. 
+This task aims to touch **backend**, **containers** and **cloud**. At Fuelsave the three go side-by-side to speed up deployment and are a central part of our software development pipeline.
+
+This repository has an api boilerplate that uses [fastapi](https://fastapi.tiangolo.com/) and `nginx`. Feel free to complement as you please. 
+
 
 ### Tips 
 * running the `app/main.py` script will launch the api at `localhost:8080`
