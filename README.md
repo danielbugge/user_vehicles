@@ -11,19 +11,17 @@ There are 2 files inside the data folder, in csv, to support the assignment:
 * users: username|password 
 * vehicles: id|distance|owner
 
-# The problem 
+# To be evaluated:
 Each vehicle has an owner (user). A user can only see information regarding their vehicles.   
 
 * Build 2 endpoints:
-  * One for authentication with route `POST /token`. Given a valid username-password, return the username encrypted with an encryption of your choice. 
+  * One for authentication with route `POST /token`. Given a valid username-password, return a token with an encryption of your choice. The token should expire in 10 minutes
   * One for an authenticated user to fetch information on all its vehicles, sort by distance, with route `GET /vehicles`. Given an encrypted username, decrypt and return the vehicles
-* When testing, mock the data reads.
-* Bonus: add the data to a database of your choice and integrate in the docker-compose.
+* Add the data to a database of your choice and integrate in the docker-compose.
+* Use mocks for unit testing.
+* Provide a CloudFormation yaml to deploy the app in AWS, we'll discuss the architecture on-site
 
 ### Deliverables:
-You have **5 hours** to perform the exercise. 
-
-* You should create a **merge request** to deliver your final answer.
 
 * Your answer is expected to be running at `localhost:80` with docker-compose up.
 
