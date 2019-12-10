@@ -23,7 +23,7 @@ Each vehicle has an owner (user). A user can only see information regarding thei
 * Add the data to a database of your choice and integrate in the docker-compose.
 * Implement unit tests.
 
-## Bonus
+### Bonus
 * Provide a CloudFormation yaml to deploy the app in AWS, we'll discuss the architecture on-site
 
 ### Deliverables:
