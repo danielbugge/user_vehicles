@@ -21,7 +21,7 @@ Each vehicle has an owner (user). A user can only see information regarding thei
   * One for authentication with route `POST /token`. Given a valid username-password, return a token with an encryption of your choice. The token should expire in 10 minutes
   * One for an authenticated user to fetch information on all its vehicles, sort by distance, with route `GET /vehicles`. Given an encrypted username, decrypt and return the vehicles
 * Add the data to a database of your choice and integrate in the docker-compose.
-* Use mocks for unit testing.
+* Implement unit tests.
 * Provide a CloudFormation yaml to deploy the app in AWS, we'll discuss the architecture on-site
 
 ### Deliverables:
