@@ -1,6 +1,6 @@
-# assignment-1
+# assignment-2
 
-This task aims to touch **backend**, **containers** and **cloud**. At Fuelsave the three go side-by-side to speed up deployment and are a central part of our software development pipeline.
+This task aims to touch **backend**, **containers**. At Fuelsave the three go side-by-side to speed up deployment and are a central part of our software development pipeline.
 
 This repository has an api boilerplate that uses [fastapi](https://fastapi.tiangolo.com/) and `nginx`. Feel free to complement as you please. 
 
