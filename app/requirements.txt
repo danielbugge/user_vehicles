@@ -1,2 +1,9 @@
 fastapi==0.31.0
 uvicorn==0.8.4
+psycopg2
+pyjwt
+passlib[bcrypt]
+pydantic==0.29.0
+python-multipart
+pytest
+pytest-mock
