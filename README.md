@@ -1,44 +1,36 @@
-# assignment-2
+# User Vehicles
 
-This task aims to touch **backend**, **containers**. At Fuelsave the three go side-by-side to speed up deployment and are a central part of our software development pipeline.
+Authenticated api to the vehicles belonging to a user
 
-This repository has an api boilerplate that uses [fastapi](https://fastapi.tiangolo.com/) and `nginx`. Feel free to complement as you please. 
+### How to run the app
 
+- running the `docker-compose build` command will build all of the services needed
+- running the `docker-compose up` script will launch the api at `localhost:80`
+- run `pip3 install -r app/requirements.txt` will build test dependencies
+- run tests with `py.test`
 
-### Tips 
-* running the `app/main.py` script will launch the api at `localhost:8080`
-* most likely you need to sign-in Docker to make the docker-compose run out of the box.
+### Structure
 
-### Data
-There are 2 files inside the data folder, in csv, to support the assignment:
-* users: username|password 
-* vehicles: id|distance|owner
+The repository follows simplified version of a clean architecture structure with repositories, models and use_cases. The use_cases have not been places into classes and instead methods have been defined that are collected in one file.
 
-# To be evaluated:
-Each vehicle has an owner (user). A user can only see information regarding their vehicles.   
+see more at: https://www.thedigitalcatonline.com/blog/2016/11/14/clean-architectures-in-python-a-step-by-step-example/
 
-* Build 2 endpoints:
-  * One for authentication with route `POST /token`. Given a valid username-password, return a token with an encryption of your choice. The token should expire in 10 minutes
-  * One for an authenticated user to fetch information on all its vehicles, sort by distance, with route `GET /vehicles`. Given an encrypted username, decrypt and return the vehicles
-* Add the data to a database of your choice and integrate in the docker-compose.
-* Implement unit tests.
+### Repositories
 
-### Bonus
-* Provide a CloudFormation yaml to deploy the app in AWS, we'll discuss the architecture on-site
+Each table in the `postgres` database is exposed by an interface on which sql will be ran. These can be found in the `app/sample/repositories` directory. In actual fact the interfaces are not entirely binded to the specific table as it depends on the sql that has been hardcoded due to some time constraints. Ideally they would have originated from a constant that was defined and used only in this repository.
 
-### Deliverables:
+### entities
 
-* The task is estimated to take 6h.
-* Your answer is expected to be running at `localhost:80` with docker-compose up.
+Every object used in the project has been created in the `app/sample/entities` directory
 
-### How to submit?
-Send us a link to a source control repository. Make sure your solution includes a README.md, documenting assumptions, simplifications and/or choices you made, as well as a short description of how to run the code and/or tests. 
-Finally, to help us review your code, please split your commit history (at least separate the provided code from your solution).
+### authentication
 
-### Next steps:
-After you submit your code, we will contact you with feedback and potentially arrange a face2face interview with the team. 
-The interview will be not only about reviewing the challenge but also discussing topics such as company culture, engineering, management and others.
+The project uses Oauth authentication. The `/token` endpoint expects Basic Auth headers to generate an encoded JWT bearer token from a username and a `SECRET` key once the username and password have been authenticated.
 
+This bearer token is decoded and validated on further requests made to the api and the requests are scoped to the user that is encoded in the JWT.
 
+To further authenticate I could have also hashed the passwords at the database level but encrypting fields in the import csv files seemed to be out of the scope of this task.
 
+### database
 
+The project uses a postgres relational database to represent the relational nature of the input data. A `db` service has been added on docker-compose, which runs the init files found in `app/db/postgres` to create the tables and populate the database with the csv data.
